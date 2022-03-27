@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Columbia Skills</title>
+
+    <link rel="stylesheet" href="/static/main.css"></link>
+
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">Columbia Exchange</a>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    {% if session["user_id"] %}
+                        <li><a href="/add_service" class="nav-link"><i class="fa-solid fa-plus"></i>Add Service</a></li>
+                        <li><a href="/account" class="nav-link"><i class="fa-regular fa-user"></i>Account</a></li>
+                    {% else %}
+                        <li><a href="/login" class="nav-link">Log In</a></li>
+                        <li><a href="/register" class="nav-link">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <button id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div class="nav-dropdown">
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+    </footer>
+
+    <script src="/static/js/layout.js"></script>
+    <script src="https://kit.fontawesome.com/0f61eb6948.js" crossorigin="anonymous"></script>
+</body>
+</html>

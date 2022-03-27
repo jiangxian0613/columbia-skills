@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div id="add-service">
+    <form action="/add_service" method="post" id="post" enctype=multipart/form-data>
+        <div class="title-entry">
+            <div class="input-label"></div>
+            <input type="text" id="title" name="title" placeholder="">
+        </div>
+        <div class="image-upload">
+            <div class="input-label">Change Image</div>
+            <img id="image-preview" src="static/image/image_placeholder.png">
+            <label for="image-entry">Upload an new image</label>
+            <input type="file" name="image" id="image-entry" accepts="image/png, image/jpg, image/jpeg">
+        </div>
+        <div class="description-entry">
+            <div class="input-label">Description</div>
+            <input type="text" id="description" name="description" placeholder="">
+        </div>
+        <div class="submit-entry">
+            <button type="submit" id="submit-service">Update</button>
+        </div>
+    </form>
+</div>
+<script src="/static/js/addservice.js"></script>
+{% endblock %}

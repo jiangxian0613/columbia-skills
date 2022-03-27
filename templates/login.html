@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/login" method="post" id="login">
+    <div>
+        <label>Email</label>
+        <input autocomplete="off" class="form-input" id="email" name="email" type="text">  
+    </div>
+    <div>
+        <label>Password</label>
+        <input class="form-input" id="password" name="password" type="password">
+    </div>
+    <button class="form-button" type="submit">Log In</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="home">
+    <h3>{{ service.creator.username }}</h3>
+    <div class="card-img">
+        <img class="cropped2" src="{{ service.image_file }}">
+    </div>
+    <h3>{{ service.title }}</h3>
+    <p>{{ service.description }}</p>
+    {% for comment in comments %}
+        <p>{{ comment.commentor.username }}: {{ comment.text }}</p>
+    {% endfor %}
+    <div class="card-footer">
+        <i class="fa-regular fa-comment"></i>
+        <p>Comments</p>
+        <form method="post" id="comment">
+            <input type="text" id="comment" name="comment" placeholder="">
+            <button type="submit" id="submit-comment">Comment</button>
+        </form>
+    </div>
+    </div>
+</section>
+<script src="/static/js/home.js"></script>
+
+{% endblock %}

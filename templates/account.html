@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section id="account-details">
+    <div class="details">
+        <h1>{{ user.username }}</h1>
+        <p>{{ user.email }}</p>
+    </div>
+</section>
+<section id="my-listings">
+    <h1>Your Listings</h1>
+    <div class="listing-grid">
+        {% for service in services %}
+            <div class="card" id="{{ service.id }}">
+                <div class="card-header">
+                    <p class="profile-name">{{ service.creator.username }}</p>
+                </div>
+                <div class="card-img">
+                    <img class="cropped" src="{{ service.image_file }}">
+                </div>
+                <div class="card-body">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <i class="fa-regular fa-comment"></i>
+                    <p>Comment</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+<form>
+    <button formaction="/logout">Log Out</button>
+</form>
+<script src="/static/js/home.js"></script>
+{% endblock %}
